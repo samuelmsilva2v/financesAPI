@@ -8,5 +8,5 @@ import lombok.Data;
 public class CategoryResponseDto {
 
 	private UUID id;
-	private String nome;
+	private String name;
 }

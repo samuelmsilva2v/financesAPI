@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class CategoryRequestDto {
 
-	private String nome;
+	private String name;
 }
