@@ -72,5 +72,4 @@ public class CategoryDomainServiceImpl implements CategoryDomainService {
 		return categoryRepository.findAll().stream()
 				.map(category -> modelMapper.map(category, CategoryResponseDto.class)).toList();
 	}
-
 }
