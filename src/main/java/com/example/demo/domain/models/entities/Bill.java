@@ -27,22 +27,22 @@ public class Bill {
 
 	@Id
 	private UUID id;
-	
+
 	@Column(length = 100, nullable = false)
 	private String name;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(nullable = false) 
+	@Column(nullable = false)
 	private Instant date;
-	
+
 	@Column(precision = 10, scale = 2, nullable = false)
 	private BigDecimal value;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private BillType type;
-	
+
 	@ManyToMany
-	@JoinTable(name = "conta_categoria", joinColumns = @JoinColumn(name = "conta_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-	private List<Category> category;
+	@JoinTable(name = "bill_category", joinColumns = @JoinColumn(name = "bill_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+	private List<Category> categories;
 }
