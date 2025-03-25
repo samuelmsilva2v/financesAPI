@@ -37,7 +37,7 @@ public class CategoryDomainServiceImpl implements CategoryDomainService {
 	public CategoryResponseDto update(UUID id, CategoryRequestDto request) throws Exception {
 
 		var category = categoryRepository.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("Categoria com ID" + id + " não encontrada."));
+				.orElseThrow(() -> new IllegalArgumentException("Category with ID " + id + " not found."));
 
 		category.setName(request.getName());
 
@@ -50,7 +50,7 @@ public class CategoryDomainServiceImpl implements CategoryDomainService {
 	public CategoryResponseDto deleteById(UUID id) throws Exception {
 
 		var category = categoryRepository.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("Categoria com ID" + id + " não encontrada."));
+				.orElseThrow(() -> new IllegalArgumentException("Category with ID " + id + " not found."));
 
 		categoryRepository.delete(category);
 
@@ -61,7 +61,7 @@ public class CategoryDomainServiceImpl implements CategoryDomainService {
 	public CategoryResponseDto findById(UUID id) throws Exception {
 
 		var category = categoryRepository.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("Categoria com ID" + id + " não encontrada."));
+				.orElseThrow(() -> new IllegalArgumentException("Category with ID " + id + " not found."));
 
 		return modelMapper.map(category, CategoryResponseDto.class);
 	}

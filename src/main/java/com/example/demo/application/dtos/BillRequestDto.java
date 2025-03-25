@@ -1,6 +1,9 @@
 package com.example.demo.application.dtos;
 
-import java.time.Instant;
+import java.math.BigDecimal;
+import java.util.Date;
+
+import com.example.demo.domain.models.enums.BillType;
 
 import lombok.Data;
 
@@ -8,7 +11,7 @@ import lombok.Data;
 public class BillRequestDto {
 
 	private String name;
-	private Instant date;
-	private Double value;
-	private String type;
+	private Date date;
+	private BigDecimal value;
+	private BillType type;
 }

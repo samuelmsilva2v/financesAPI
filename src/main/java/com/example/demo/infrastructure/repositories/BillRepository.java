@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.domain.models.entities.Bill;
 
-public interface BillResponseDto extends JpaRepository<Bill, UUID> {
+public interface BillRepository extends JpaRepository<Bill, UUID> {
 
 }

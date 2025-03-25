@@ -12,7 +12,7 @@ public interface BillDomainService {
 	
 	BillResponseDto update(UUID id, BillRequestDto request) throws Exception;
 	
-	BillResponseDto deleteById(UUID id) throws Exception;
+	String deleteById(UUID id) throws Exception;
 	
 	BillResponseDto findById(UUID id) throws Exception;
 	

@@ -1,6 +1,7 @@
 package com.example.demo.application.dtos;
 
-import java.time.Instant;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,8 +12,8 @@ public class BillResponseDto {
 
 	private UUID id;
 	private String name;
-	private Instant date;
-	private Double value;
+	private Date date;
+	private BigDecimal value;
 	private String type;
-	private List<CategoryResponseDto> categoria;
+	private List<CategoryResponseDto> categories;
 }

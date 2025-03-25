@@ -1,7 +1,7 @@
 package com.example.demo.domain.models.entities;
 
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,7 +33,7 @@ public class Bill {
 
 	@Temporal(TemporalType.DATE)
 	@Column(nullable = false)
-	private Instant date;
+	private Date date;
 
 	@Column(precision = 10, scale = 2, nullable = false)
 	private BigDecimal value;
