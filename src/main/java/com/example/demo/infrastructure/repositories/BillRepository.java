@@ -8,4 +8,5 @@ import com.example.demo.domain.models.entities.Bill;
 
 public interface BillRepository extends JpaRepository<Bill, UUID> {
 
+	boolean existsByName(String name);
 }

@@ -8,4 +8,5 @@ import com.example.demo.domain.models.entities.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, UUID> {
 
+	boolean existsByName(String nome);
 }

@@ -24,6 +24,9 @@ public class BillDomainServiceImpl implements BillDomainService {
 
 	@Override
 	public BillResponseDto create(BillRequestDto request) throws Exception {
+		
+		if(billRepository.existsByName(request.getName()))
+			throw new IllegalArgumentException("There is already a bill registered with that name. Please try another one.");
 
 		var bill = modelMapper.map(request, Bill.class);
 		bill.setId(UUID.randomUUID());
@@ -38,6 +41,9 @@ public class BillDomainServiceImpl implements BillDomainService {
 
 		var bill = billRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Bill with ID " + id + " not found."));
+		
+		if(billRepository.existsByName(request.getName()))
+			throw new IllegalArgumentException("There is already a bill registered with that name. Please try another one.");
 
 		bill.setName(request.getName());
 		bill.setDate(request.getDate());

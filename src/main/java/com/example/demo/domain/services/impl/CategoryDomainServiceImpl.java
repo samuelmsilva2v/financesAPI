@@ -24,6 +24,9 @@ public class CategoryDomainServiceImpl implements CategoryDomainService {
 
 	@Override
 	public CategoryResponseDto create(CategoryRequestDto request) throws Exception {
+		
+		if(categoryRepository.existsByName(request.getName()))
+				throw new IllegalArgumentException("There is already a category registered with that name. Please try another one.");
 
 		var category = modelMapper.map(request, Category.class);
 		category.setId(UUID.randomUUID());
@@ -38,6 +41,9 @@ public class CategoryDomainServiceImpl implements CategoryDomainService {
 
 		var category = categoryRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Category with ID " + id + " not found."));
+		
+		if(categoryRepository.existsByName(request.getName()))
+			throw new IllegalArgumentException("There is already a category registered with that name. Please try another one.");
 
 		category.setName(request.getName());
 

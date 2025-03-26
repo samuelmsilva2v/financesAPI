@@ -28,7 +28,7 @@ public class Bill {
 	@Id
 	private UUID id;
 
-	@Column(length = 100, nullable = false)
+	@Column(length = 100, nullable = false, unique = true)
 	private String name;
 
 	@Temporal(TemporalType.DATE)
