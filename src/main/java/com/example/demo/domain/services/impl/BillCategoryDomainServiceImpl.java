@@ -27,8 +27,8 @@ public class BillCategoryDomainServiceImpl implements BillCategoryDomainService 
 	@Override
 	public BillCategoryResponseDto create(BillCategoryRequestDto request) throws Exception {
 		
-		var bill = billRepository.findById(request.getBillID())
-				.orElseThrow(() -> new IllegalArgumentException("Bill with ID " + request.getBillID() + " not found."));
+		var bill = billRepository.findById(request.getBillId())
+				.orElseThrow(() -> new IllegalArgumentException("Bill with ID " + request.getBillId() + " not found."));
 		
 		var category = categoryRepository.findById(request.getCategoryId())
 				.orElseThrow(() -> new IllegalArgumentException("Category with ID " + request.getCategoryId() + " not found."));

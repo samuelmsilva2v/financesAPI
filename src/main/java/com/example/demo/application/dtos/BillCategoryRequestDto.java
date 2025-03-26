@@ -9,7 +9,7 @@ import lombok.Data;
 public class BillCategoryRequestDto {
 
 	@NotNull(message = "Please provide the Bill ID")
-	private UUID billID;
+	private UUID billId;
 	
 	@NotNull(message = "Please provide the Category ID")
 	private UUID categoryId;
