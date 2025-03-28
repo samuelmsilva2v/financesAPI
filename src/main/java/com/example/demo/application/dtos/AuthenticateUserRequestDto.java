@@ -14,5 +14,5 @@ public class AuthenticateUserRequestDto {
 	
 	@Size(min = 8, message = "Please enter your login password with at least 8 characters")
 	@NotEmpty(message = "Please enter your login password.")
-	private String senha;
+	private String password;
 }

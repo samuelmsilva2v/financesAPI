@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.application.dtos.AuthenticateUserRequestDto;
+import com.example.demo.application.dtos.AuthenticateUserResponseDto;
 import com.example.demo.application.dtos.CreateUserRequestDto;
 import com.example.demo.application.dtos.CreateUserResponseDto;
 import com.example.demo.domain.services.interfaces.UserDomainService;
@@ -30,7 +32,8 @@ public class UserController {
 	
 	@Operation(summary = "Serviço para autenticar um usuário")
 	@PostMapping("authenticate")
-	public void authenticate() throws Exception {
-		// TODO
+	public ResponseEntity<AuthenticateUserResponseDto> authenticate(@RequestBody @Valid AuthenticateUserRequestDto request) throws Exception {
+		var response = userDomainService.authenticate(request);
+		return ResponseEntity.ok(response);
 	}
 }
