@@ -11,6 +11,7 @@ import com.example.demo.application.dtos.BillRequestDto;
 import com.example.demo.application.dtos.BillResponseDto;
 import com.example.demo.domain.models.entities.Bill;
 import com.example.demo.domain.services.interfaces.BillDomainService;
+import com.example.demo.infrastructure.components.RabbitMQProducerComponent;
 import com.example.demo.infrastructure.repositories.BillRepository;
 
 @Service
@@ -21,6 +22,9 @@ public class BillDomainServiceImpl implements BillDomainService {
 
 	@Autowired
 	private ModelMapper modelMapper;
+	
+	@Autowired
+	private RabbitMQProducerComponent rabbitMQProducerComponent;
 
 	@Override
 	public BillResponseDto create(BillRequestDto request) throws Exception {
@@ -32,6 +36,8 @@ public class BillDomainServiceImpl implements BillDomainService {
 		bill.setId(UUID.randomUUID());
 
 		billRepository.save(bill);
+		
+		rabbitMQProducerComponent.sendMessage(bill);
 
 		return modelMapper.map(bill, BillResponseDto.class);
 	}

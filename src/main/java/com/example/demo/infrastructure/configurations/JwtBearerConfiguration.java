@@ -13,7 +13,9 @@ public class JwtBearerConfiguration {
 	FilterRegistrationBean<JwtBearerFilter> jwtFilter() {
 		FilterRegistrationBean<JwtBearerFilter> filter = new FilterRegistrationBean<JwtBearerFilter>();
 		filter.setFilter(new JwtBearerFilter());
-		filter.addUrlPatterns("/api/*");
+		filter.addUrlPatterns("/api/bill*");
+		filter.addUrlPatterns("/api/category*");
+		filter.addUrlPatterns("/api/bill-category*");
 		return filter;
 	}
 }

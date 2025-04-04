@@ -15,7 +15,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -46,8 +45,4 @@ public class Bill {
 	@ManyToMany
 	@JoinTable(name = "bill_category", joinColumns = @JoinColumn(name = "bill_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private List<Category> categories;
-	
-	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
 }
