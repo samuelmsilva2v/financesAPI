@@ -14,9 +14,31 @@ services:
    - mysql_data:/var/lib/mysql
   networks:
    - mynetwork
+
+ rabbitmq:
+  image: rabbitmq:3-management
+  container_name: financesapi_rabbitmq
+  restart: always
+  environment:
+   RABBITMQ_DEFAULT_USER: guest
+   RABBITMQ_DEFAULT_PASS: guest
+  ports:
+   - "5672:5672"
+   - "15672:15672"
+  volumes:
+    - rabbitmq_data:/var/lib/rabbitmq
+
+ mailhog:
+  image: mailhog/mailhog:latest
+  container_name: mailhog_apifinancas
+  restart: always
+  ports:
+   - "1025:1025"   
+   - "8025:8025"
    
 volumes:
  mysql_data:
+ rabbitmq_data:
 
 networks:
  mynetwork:
